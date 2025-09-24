@@ -40,6 +40,11 @@ def is_valid_app_name(app_name):
     return not is_reserved_keyword(app_name) and is_valid_pep508_name(app_name)
 
 
+def is_valid_description(description):
+    """Determine if the description is not longer than 80 characters."""
+    return len(description) <= 80
+
+
 def make_class_name(formal_name):
     """Construct a valid class name from a formal name.
 
@@ -397,7 +402,7 @@ class AppConfig(BaseConfig):
 
         self.test_mode: bool = False
 
-        if len(self.description) > 80:
+        if not is_valid_description(self.description):
             raise BriefcaseConfigError(
                 f"The app description is {len(self.description)} characters long.\n\n"
                 "Descriptions should be short.\n"
