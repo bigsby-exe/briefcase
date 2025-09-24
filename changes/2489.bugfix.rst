@@ -1,1 +1,1 @@
-Fix truncated icon link when packaging on Windows
+Fixed issue with app icon when building for Windows
