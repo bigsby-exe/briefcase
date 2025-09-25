@@ -404,8 +404,8 @@ class AppConfig(BaseConfig):
 
         if not is_valid_description(self.description):
             raise BriefcaseConfigError(
-                f"The app description is {len(self.description)} characters long.\n\n"
-                "Descriptions should be short.\n"
+                "The app description is too long\n\n"
+                f"The description is {len(self.description)} characters long.\n"
                 "Longer descriptions should use the 'long_description' field.\n"
                 "On some platforms, descriptions may be truncated to fit platform limitations.",
             )
